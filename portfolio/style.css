@@ -1,0 +1,402 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basis instellen voor de hele pagina */
+html, body {
+    height: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #e0d7f5; /* zachte lichtpaarse achtergrond */
+    color: #000; /* standaard tekst zwart */
+}
+
+:root{
+    --purple-dark: #2d0036;      /* deep purple */
+    --purple-mid: #4B0082;       /* indigo/purple accent */
+    --yellow-dark: #b88600;      /* warm dark yellow (golden) */
+    --yellow-light: #fff4c2;     /* pale warm yellow */
+    --bg-gradient-start: #1b0026; /* near-black purple */
+    --bg-gradient-end: #fff7d6;   /* very light yellow */
+
+    --bg: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+    --text: #000;               /* primary text is black */
+    --muted: #2f2f2f;           /* darker muted */
+    --card-bg: rgba(255,255,255,0.92); /* slightly translucent white */
+    --card-border: var(--yellow-dark);
+    --accent: var(--purple-mid);
+    --card-text: #000;
+}
+
+/* Apply background gradient */
+html, body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+html { font-size: 16px; }
+
+/* Slightly larger, more readable base type */
+html, body {
+    font-size: 1rem; /* 16px */
+}
+
+body{ line-height:1.65; }
+
+/* Improve link/button focus visibility for keyboard users */
+a:focus, .btn:focus, .lightbox-close:focus {
+    outline: 3px solid rgba(75,0,130,0.18);
+    outline-offset: 3px;
+}
+
+/* Algemene container voor een nette layout */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, var(--purple-dark), rgba(75,0,130,0.92));
+    color: #fff;
+    padding: 26px 0;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    border-bottom: 4px solid rgba(0,0,0,0.12);
+}
+header h1 {
+    margin-bottom: 6px;
+    font-size: 2.2em;
+    color: var(--yellow-light);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+nav ul li {
+    margin: 0 15px;
+}
+nav ul li a {
+    color: var(--yellow-light);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background-color 220ms ease, color 220ms ease, transform 120ms ease;
+}
+nav ul li a:hover {
+    background-color: rgba(255,255,255,0.06);
+    transform: translateY(-2px);
+}
+
+/* Secties - container met zachte achtergrondkleur en afgeronde hoeken */
+.section {
+    padding: 34px;
+    max-width: 1100px;
+    margin: 26px auto;
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,240,0.9));
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(11,6,20,0.18);
+    border: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Koppen in secties */
+h2 {
+    color: var(--purple-mid);
+    margin-bottom: 14px;
+    font-size: 2.05em;
+}
+h3 { color: var(--purple-mid); }
+
+/* Project Cards */
+/* Use a flex row so cards sit side-by-side on wider screens and wrap on smaller screens */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* center cards in the section */
+    align-items: flex-start; /* ensure cards align to the top and don't stretch */
+}
+.card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    box-shadow: 0 8px 26px rgba(11,6,20,0.12);
+    padding: 22px;
+    flex: 1 1 300px;
+    max-width: 340px;
+    transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+    border: 2px solid var(--card-border);
+    overflow: hidden; /* prevent tall images from breaking card layout */
+}
+.card:hover{
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 18px 40px rgba(11,6,20,0.22);
+}
+.card h5 { color: var(--purple-mid); }
+.card p, .card ul, .card li { color: var(--card-text); }
+.card img {
+    display: block;
+    width: 100%;
+    height: auto; /* let width control height for responsiveness */
+    border-radius: 10px;
+    object-fit: cover; /* crop large images nicely when a max-height is applied */
+}
+
+/* limit main/gallery image height so very tall screenshots don't blow up the card */
+.card .gallery-main,
+.card > img {
+    max-height: 260px;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Tekst en lijsten in kaarten: grotere, hogere contrast en betere spacing */
+p, ul {
+    color: #000; /* zwart */
+    margin-top: 10px;
+}
+ul {
+    padding-left: 20px;
+}
+
+/* Make paragraph and list text inside project cards more readable */
+.card p,
+.card ul,
+.card li {
+    color: var(--card-text);
+    margin-top: 12px;
+    line-height: 1.75;
+    font-size: 1rem; /* ensure readable size */
+}
+
+@media (prefers-color-scheme: dark) {
+    .card{background:#1a1a1a; border-color:#333; color:#ddd}
+    .btn{background:#6f42c1}
+    /* ensure readable text in dark mode */
+    .card p,
+    .card ul,
+    .card li {
+        color: #ddd;
+    }
+}
+
+/* Acties en knoppen in kaarten: fixed naast elkaar en consistente grootte */
+.actions{
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    justify-content: flex-start; /* buttons aligned to start; change to center if you prefer */
+    align-items: center;
+    flex-wrap: wrap; /* allow wrap on very small screens */
+}
+
+.actions .btn{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 140px; /* each button tries to be ~140px, but will grow to fill available space */
+    min-width: 120px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    color: #fff;
+    background: var(--purple-mid);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.actions .btn:hover{ transform: translateY(-4px); }
+
+.actions .btn.secondary{
+    background: var(--yellow-dark);
+    color: #000;
+    font-weight: 800;
+    box-shadow: 0 6px 14px rgba(184,134,0,0.12);
+}
+
+@media (max-width: 420px){
+    .actions .btn{
+        flex: 1 1 48%; /* two buttons per row on very small screens */
+        min-width: 0;
+    }
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, rgba(45,0,54,0.95), rgba(75,0,130,0.95));
+    color: var(--yellow-light);
+    text-align: center;
+    padding: 18px 10px;
+    margin-top: 40px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* Lightbox / fullscreen image overlay */
+#lightbox {
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    display: none; /* hidden by default */
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    padding: 20px;
+    touch-action: none; /* allow JS to handle horizontal swipe gestures */
+}
+#lightbox.visible {
+    display: flex;
+}
+.lightbox-content {
+    position: relative;
+    max-width: 95%;
+    max-height: 95%;
+    touch-action: none;
+}
+#lightbox-img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    display: block;
+    margin: 0 auto;
+    touch-action: none;
+    will-change: transform; /* improve touch move performance */
+}
+.lightbox-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.lightbox-close:focus {
+    outline: 2px solid #fff;
+}
+@media (max-width: 480px) {
+    .lightbox-close { width: 32px; height: 32px; font-size: 18px; }
+}
+
+/* Gallery inside cards */
+.gallery {
+    display: block;
+}
+.gallery-main {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    display: block;
+}
+.gallery-thumbs {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+.gallery-thumbs img{
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform 0.12s ease, border-color 0.12s ease;
+}
+.gallery-thumbs img:hover{ transform: translateY(-3px); }
+.gallery-thumbs img.active{ border-color: var(--accent); }
+
+/* Lightbox navigation buttons */
+.lightbox-prev,
+.lightbox-next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.9);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+.lightbox-prev{ left: 18px; }
+.lightbox-next{ right: 18px; }
+.lightbox-prev:hover, .lightbox-next:hover{ transform: translateY(-50%) scale(1.04); }
+
+@media (max-width: 480px){
+    .gallery-thumbs img{ width: 48px; height: 48px; }
+    .lightbox-prev, .lightbox-next{ width:36px; height:36px; font-size:18px; }
+}
+
+/* Responsive ontwerp */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    /* stack cards vertically on small screens */
+    .cards-container {
+        justify-content: center;
+    }
+    .card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+.ayoub{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.ayoub img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+
+}
+
+/* Scroll reveal animation: elements start slightly down + transparent and slide up while fading in */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1);
+    will-change: opacity, transform;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Small stagger hint for cards so they don't all pop at exactly the same moment */
+.cards-container .card.reveal { transition-delay: 80ms; }
+.cards-container .card.reveal.active { transition-delay: 0ms; }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal.active {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
