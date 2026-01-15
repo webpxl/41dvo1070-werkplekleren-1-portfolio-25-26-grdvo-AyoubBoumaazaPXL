@@ -9,6 +9,19 @@
     <script crossorigin="anonymous"
             integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Lightbox minimal styles zodat de JS het kan tonen/verbergen -->
+    <style>
+        /* basis lightbox layout - klein en minimaal zodat het direct werkt */
+        #lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,0.85); z-index: 2000; }
+        #lightbox.visible { display: flex; }
+        #lightbox-img { max-width: 92%; max-height: 86%; border-radius: 6px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
+        .lightbox-close, .lightbox-prev, .lightbox-next { position: absolute; background: rgba(255,255,255,0.9); border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+        .lightbox-close { top: 20px; right: 20px; font-size: 20px; }
+        .lightbox-prev { left: 18px; top: 50%; transform: translateY(-50%); }
+        .lightbox-next { right: 18px; top: 50%; transform: translateY(-50%); }
+        @media (max-width: 640px) { .lightbox-prev, .lightbox-next { padding: 6px 10px; } }
+    </style>
 </head>
 <body>
 
@@ -64,7 +77,6 @@
                     vormgever</strong></p>
             <div class="actions">
                 <a class="btn" href="#">Bekijk</a>
-                <a class="btn secondary" href="#">Details</a>
             </div>
         </article>
 
@@ -77,7 +89,7 @@
             <p>Voor Werkplekleren 1 heb ik een dashboard-cv ontwikkeld. Hierbij heb ik het volledige ontwerpproces
                 doorlopen, van eerste schetsen tot informeren en wireframes tot een uitgewerkt final design.</p>
             <div class="actions">
-                <a class="btn" href="#">Bekijk</a>
+
                 <a class="btn secondary" href="assets/Ayoub WPL.pdf" download="Ayoub_WPL.pdf">Download</a>
             </div>
         </article>
@@ -88,9 +100,9 @@
                 <img class="gallery-main" src="assets/black tie event fit.jpg" alt="ayoub in een pak"/>
                 <div class="gallery-thumbs">
 
-                    <img src="assets/event hairstyle.jpg" alt="foto van ayoub met liberty spikes"/><img
-                        src="assets/summer streetstyle fit.jpg" alt="Thumb 2"/>
-                    <img src="assets/outfit check.jpg" alt="Thumb 3"/>
+                    <img src="assets/event hairstyle.jpg" alt="foto van ayoub met liberty spikes"/>
+                    <img src="assets/summer streetstyle fit.jpg" alt="Thumb 2"/>
+                    <img src="assets/outfit check.jpg" alt="foto van ayoub in nette zwarte kleding"/>
                 </div>
             </div>
             <div class="meta">Fashion and hairstyles — Buiten school</div>
@@ -124,6 +136,16 @@
     <p>&copy; 2026 Ayoub Boumaaza. Alle rechten voorbehouden.</p>
     <div><a href="privacy.txt">Privacy Beleid</a></div>
 </footer>
+
+<!-- Lightbox element en kleine konami feedback -->
+<div id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Sluiten">&times;</button>
+    <button class="lightbox-prev" aria-label="Vorige">‹</button>
+    <img id="lightbox-img" src="" alt="Vergrote afbeelding"/>
+    <button class="lightbox-next" aria-label="Volgende">›</button>
+</div>
+
+<div id="easter" style="display:none; position:fixed; bottom:18px; right:18px; background:rgba(255,255,255,0.95); color:#111; padding:8px 12px; border-radius:8px; box-shadow:0 8px 30px rgba(0,0,0,0.18); z-index:3000;">Hidden</div>
 
 <!-- Hidden element for Konami code feedback -->
 

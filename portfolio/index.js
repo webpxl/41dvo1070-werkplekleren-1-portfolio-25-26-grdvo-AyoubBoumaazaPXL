@@ -77,26 +77,23 @@ window.addEventListener("keydown", (e) => {
         const thumbs = Array.from(card.querySelectorAll('.gallery-thumbs img'));
 
         if (galleryMain && thumbs.length) {
-            // Build the gallery array from thumbnails (use their srcs)
-            const galleryArray = thumbs.map(t => t.getAttribute('src'));
-            // ensure the main image is included (prepend if necessary)
-            const mainSrc = galleryMain.getAttribute('src');
-            if (!galleryArray.includes(mainSrc)) {
-                galleryArray.unshift(mainSrc);
-            }
+            // Build gallery array: main first, then unique thumbs (use absolute URLs via .src to avoid encoding mismatches)
+            const mainSrc = galleryMain.src;
+            const thumbsSrcs = thumbs.map(t => t.src).filter(s => !!s);
+            // ensure no duplicate entries and main is first
+            const galleryArray = [mainSrc, ...thumbsSrcs.filter(s => s !== mainSrc)];
 
-            // mark initial active thumb based on mainSrc
-            const mainIndex = galleryArray.indexOf(mainSrc);
+            // mark initial active thumb if one matches the main image
             thumbs.forEach(t => t.classList.remove('active'));
-            // find the thumb element whose src equals the current main (if present)
-            const activeThumb = thumbs.find(t => galleryArray.indexOf(t.getAttribute('src')) === (mainIndex === -1 ? 0 : mainIndex));
+            const activeThumb = thumbs.find(t => t.src === mainSrc);
             if (activeThumb) activeThumb.classList.add('active');
 
             // Thumbnail click: update active thumb and main image
-            thumbs.forEach((thumb, thumbIndex) => {
+            thumbs.forEach((thumb) => {
                 thumb.addEventListener('click', () => {
-                    // If mainSrc was unshifted, then galleryArray[0] is mainSrc; adjust index
-                    const indexInGallery = galleryArray.indexOf(thumb.getAttribute('src'));
+                    const indexInGallery = galleryArray.indexOf(thumb.src);
+                    if (indexInGallery === -1) return; // safety
+                    // update main image
                     galleryMain.src = galleryArray[indexInGallery];
                     // mark active
                     thumbs.forEach(t => t.classList.remove('active'));
@@ -106,14 +103,16 @@ window.addEventListener("keydown", (e) => {
 
             // Click on main opens lightbox with this gallery
             galleryMain.addEventListener('click', () => {
-                openLightboxWithGallery(galleryArray, galleryArray.indexOf(galleryMain.getAttribute('src')) || 0);
+                // determine starting index based on current main src
+                const start = galleryArray.indexOf(galleryMain.src);
+                openLightboxWithGallery(galleryArray, start === -1 ? 0 : start);
             });
         } else {
             // For cards without gallery, make their images open directly
             const imgs = card.querySelectorAll('img');
             imgs.forEach(img => {
                 img.addEventListener('click', () => {
-                    openLightboxWithGallery([img.getAttribute('src')], 0);
+                    openLightboxWithGallery([img.src], 0);
                 });
             });
         }
@@ -176,7 +175,7 @@ window.addEventListener("keydown", (e) => {
         lightboxImg.style.transform = `translateX(${touchDeltaX}px) scale(0.985)`;
     }, { passive: false });
 
-    lightbox.addEventListener('touchend', (e) => {
+    lightbox.addEventListener('touchend', ( ) => {
         if (!isTouching) return;
         isTouching = false;
         // restore transition for snap
