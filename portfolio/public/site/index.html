@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Ayoub Boumaaza — Portfolio Designer &amp; Developer</title>
+
+    <link rel="stylesheet" href="styles.css"/>
+    <script defer src="script.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Naar inhoud</a>
+
+<header class="site-header">
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        <span class="sr-only">Menu</span>
+    </button>
+    <nav id="navMenu" class="nav">
+        <ul>
+            <li><a href="#over">Over mij</a></li>
+            <li><a href="#waarom">Waarom</a></li>
+            <li><a href="#projecten">Projecten</a></li>
+            <li><a href="#setup">Setup</a></li>
+            <li><a href="#weetjes">Weetjes</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="wrap hero__inner">
+            <p class="eyebrow">Grafische Vormgeving &amp; Coderen — [studiejaar]</p>
+            <h1>Hallo, ik ben <span class="grad">Ayoub Boumaaza</span>.<br/>Ik ontwerp én bouw digitale dingen.</h1>
+            <p class="lead">Half designer, half developer. Ik hou van code dat leesbaar is en mezelf op alle vlakken te
+                uitdagen en te groeien.</p>
+            <div class="hero__cta">
+                <a class="btn btn--primary" href="#projecten">Bekijk mijn projecten</a>
+                <a class="btn btn--ghost" href="#contact">Neem contact op</a>
+            </div>
+            <ul class="stats">
+                <li><strong data-count="12">0</strong><span>projecten</span></li>
+                <li><strong data-count="6">0</strong><span>tools dagelijks</span></li>
+                <li><strong data-count="3">0</strong><span>talen</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- OVER -->
+    <section id="over" class="section reveal">
+        <div class="wrap grid grid--2">
+            <div>
+                <h2 class="section__title">Korte voorstelling</h2>
+                <p>Ik ben Ayoub Boumaaza, 21 jaar en woon in Bocholt. Ik studeer <strong>Graduaats opleiding Digitale
+                    Vormgeving</strong> aan <strong>Hogeschool PXL</strong>. Wat mij bezighoudt: Mezelf constant te
+                    verbeteren zowel proffesioneel als persoonlijk, nieuwe code logica te leren en uitgaan.</p>
+
+                <ul class="facts">
+                    <li><span>Naam</span>Ayoub Boumaaza</li>
+                    <li><span>Woonplaats</span>Bocholt</li>
+                    <li><span>Opleidingen</span>Secundair onderwijs: Basis zorg en ondersteuning, SAB Bree & Graduaat:
+                        Digitale Vormgeving Hogeschool PXL Hasselt
+                    </li>
+                    <li><span>Talen</span>Nederlands, Engels, Marokkaans Arabisch</li>
+                    <li><span>School Mail</span>Ayoub.boumaazastudent.pxl.be</li>
+                </ul>
+            </div>
+            <div class="card card--profile">
+                <div class="avatar" aria-hidden="true"><img src="../../assets/Untitled-1.png" alt="Ayoub boumaaza"/></div>
+
+                <h3>Skills</h3>
+                <div class="skills">
+                    <div class="skill"><span>HTML &amp; CSS</span><i style="--v:80%"></i></div>
+                    <div class="skill"><span>JavaScript</span><i style="--v:50%"></i></div>
+                    <div class="skill"><span>Figma / UI</span><i style="--v:45%"></i></div>
+                    <div class="skill"><span>Illustrator / Photoshop</span><i style="--v:60%"></i></div>
+                    <div class="skill"><span>Samenwerken &amp; presenteren</span><i style="--v:90%"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAAROM -->
+    <section id="waarom" class="section section--alt reveal">
+        <div class="wrap">
+            <h2 class="section__title">Waarom deze opleiding?</h2>
+            <div class="grid grid--3">
+                <article class="card">
+                    <span class="num">01</span>
+                    <h3>De keuze</h3>
+                    <p>Ik zat al jaren te knutselen aan posters, logo's en kleine websites voor vrienden. Op een bepaald
+                        moment merkte ik dat ik het leuker vond dan wat dan ook. Deze opleiding combineert precies die
+                        twee kanten: het visuele en het technische.</p>
+                </article>
+                <article class="card">
+                    <span class="num">02</span>
+                    <h3>Waarom een goede designer</h3>
+                    <p>Ik ben detailgevoelig zonder in details te verdrinken. Ik vraag altijd eerst <em>voor wie</em>
+                        iets is. Feedback zie ik als gratis informatie, niet als kritiek — daardoor gaan mijn ontwerpen
+                        snel vooruit.</p>
+                </article>
+                <article class="card">
+                    <span class="num">03</span>
+                    <h3>Waarom een goede programmeur</h3>
+                    <p>Ik schrijf code die een ander mens ook kan lezen: duidelijke namen, herbruikbare componenten,
+                        geen kopieer-plak-chaos. Vastlopen vind ik niet erg — dat is meestal het punt waar ik het meest
+                        bijleer.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTEN -->
+    <section id="projecten" class="section reveal">
+        <div class="wrap">
+            <h2 class="section__title">Projecten</h2>
+            <p class="section__sub">School- en eigen projecten. Filter per categorie.</p>
+
+            <div class="filters" role="tablist" aria-label="Projectfilters">
+                <button class="chip is-active" data-filter="all">Alles</button>
+                <button class="chip" data-filter="web">Webdevelopment</button>
+                <button class="chip" data-filter="grafisch">Grafische vormgeving</button>
+                <button class="chip" data-filter="eigen">Eigen projecten</button>
+            </div>
+
+            <div class="projects" id="projects">
+                <article class="project" data-cat="web">
+                    <div class="project__thumb" style="--a:#3b0f4d;--b:#7a5c00"><span>Screenshot placeholder</span>
+                    </div>
+                    <div class="project__body">
+                        <p class="tag">Webdevelopment · Vak: [Webontwikkeling 1]</p>
+                        <h3>Responsive restaurantwebsite</h3>
+                        <p>Een volledig responsieve one-pager voor een fictief restaurant, gebouwd met enkel HTML, CSS
+                            en plain JavaScript.</p>
+                        <ul class="bullets">
+                            <li><strong>Mijn rol:</strong> alles — van moodboard tot uitgeschreven code.</li>
+                            <li><strong>Wat ik deed:</strong> mobile-first grid opgezet, een menufilter in JS
+                                geschreven, toegankelijke navigatie met keyboard support.
+                            </li>
+                            <li><strong>Geleerd:</strong> hoe belangrijk semantische HTML is voor screenreaders.</li>
+                        </ul>
+                        <p class="stack">HTML · CSS Grid · JavaScript</p>
+                    </div>
+                </article>
+
+                <article class="project" data-cat="grafisch">
+                    <div class="project__thumb" style="--a:#2a0b3a;--b:#8a6a00"><span>Screenshot placeholder</span>
+                    </div>
+                    <div class="project__body">
+                        <p class="tag">Grafische vormgeving · Vak: [Huisstijl &amp; Branding]</p>
+                        <h3>Huisstijl voor [fictief merk]</h3>
+                        <p>Volledige merkidentiteit: logo, kleurpalet, typografie en een brand guide van [x]
+                            pagina's.</p>
+                        <ul class="bullets">
+                            <li><strong>Mijn rol:</strong> concept, logo-ontwerp en opmaak van de gids.</li>
+                            <li><strong>Wat ik deed:</strong> 30+ logoschetsen, daarna digitaal uitgewerkt in
+                                Illustrator; testen op drukwerk en op scherm.
+                            </li>
+                            <li><strong>Geleerd:</strong> een logo is pas af als het ook op 16px nog leesbaar is.</li>
+                        </ul>
+                        <p class="stack">Illustrator · InDesign · Figma</p>
+                    </div>
+                </article>
+
+                <article class="project" data-cat="web grafisch">
+                    <div class="project__thumb" style="--a:#1e0a2e;--b:#6b5200"><span>Screenshot placeholder</span>
+                    </div>
+                    <div class="project__body">
+                        <p class="tag">Groepsproject · Vak: [Interactief Ontwerp]</p>
+                        <h3>Interactieve quiz-app</h3>
+                        <p>Een quiz over [thema] met scoreboard, timer en animaties, gemaakt in groep van [x]
+                            studenten.</p>
+                        <ul class="bullets">
+                            <li><strong>Mijn rol:</strong> front-end lead + UI-ontwerp.</li>
+                            <li><strong>Wat ik deed:</strong> de state-logica in JavaScript geschreven, de designs in
+                                Figma gemaakt en de taken verdeeld binnen het team.
+                            </li>
+                            <li><strong>Geleerd:</strong> duidelijke afspraken maken bespaart meer tijd dan snel typen.
+                            </li>
+                        </ul>
+                        <p class="stack">JavaScript · localStorage · Figma</p>
+                    </div>
+                </article>
+
+                <article class="project" data-cat="eigen">
+                    <div class="project__thumb" style="--a:#3d1250;--b:#9a7500"><span>Foto placeholder</span></div>
+                    <div class="project__body">
+                        <p class="tag">Eigen project · Buiten de school</p>
+                        <h3>Organisatie van [evenement]</h3>
+                        <p>Samen met [x] vrienden een evenement georganiseerd voor ongeveer [aantal] bezoekers.</p>
+                        <ul class="bullets">
+                            <li><strong>Mijn rol:</strong> promo &amp; communicatie.</li>
+                            <li><strong>Wat ik deed:</strong> affiches en social posts ontworpen, de planning
+                                bijgehouden en de inschrijvingspagina gebouwd.
+                            </li>
+                            <li><strong>Geleerd:</strong> plannen met echte deadlines is een ander spel dan een
+                                schoolopdracht.
+                            </li>
+                        </ul>
+                        <p class="stack">Photoshop · Canva · Organisatie</p>
+                    </div>
+                </article>
+
+                <article class="project" data-cat="eigen web">
+                    <div class="project__thumb" style="--a:#240b33;--b:#7d6100"><span>Screenshot placeholder</span>
+                    </div>
+                    <div class="project__body">
+                        <p class="tag">Eigen project · Hobby</p>
+                        <h3>Persoonlijke tool: [naam tool]</h3>
+                        <p>Een klein hulpje dat ik voor mezelf maakte om [probleem] op te lossen. Ondertussen gebruiken
+                            ook [x] klasgenoten het.</p>
+                        <ul class="bullets">
+                            <li><strong>Mijn rol:</strong> solo — idee, ontwerp en code.</li>
+                            <li><strong>Wat ik deed:</strong> het opgebouwd zonder frameworks, data in localStorage,
+                                dark mode ingebouwd.
+                            </li>
+                            <li><strong>Geleerd:</strong> iets kleins afwerken is waardevoller dan iets groots half
+                                maken.
+                            </li>
+                        </ul>
+                        <p class="stack">HTML · CSS · Vanilla JS</p>
+                    </div>
+                </article>
+
+                <article class="project" data-cat="grafisch eigen">
+                    <div class="project__thumb" style="--a:#31103f;--b:#8f6f00"><span>Foto placeholder</span></div>
+                    <div class="project__body">
+                        <p class="tag">Eigen project · Freelance</p>
+                        <h3>Socialmedia-visuals voor [klant]</h3>
+                        <p>Een reeks van [aantal] posts en story-templates in een consistente stijl.</p>
+                        <ul class="bullets">
+                            <li><strong>Mijn rol:</strong> ontwerper &amp; contactpersoon.</li>
+                            <li><strong>Wat ik deed:</strong> templates gebouwd zodat de klant zelf verder kan, en een
+                                korte handleiding geschreven.
+                            </li>
+                            <li><strong>Geleerd:</strong> een klant begeleiden is even belangrijk als het ontwerp zelf.
+                            </li>
+                        </ul>
+                        <p class="stack">Photoshop · Figma · Klantcontact</p>
+                    </div>
+                </article>
+            </div>
+            <p class="empty" id="emptyState" hidden>Geen projecten in deze categorie.</p>
+        </div>
+    </section>
+
+    <!-- SPECIALE SECTIE 1 -->
+    <section id="setup" class="section section--alt reveal">
+        <div class="wrap">
+            <h2 class="section__title">Speciaal: mijn creatieve setup</h2>
+            <p class="section__sub">Beweeg over een kaart om te zien wat er echt op mijn bureau ligt.</p>
+            <div class="grid grid--4">
+                <div class="tile"><h3>Toetsenbord</h3>
+                    <p>[merk/model] — mechanisch, want geluid = motivatie.</p></div>
+                <div class="tile"><h3>Muziek</h3>
+                    <p>Ik codeer op [genre/artiest]. Zonder muziek geen focus.</p></div>
+                <div class="tile"><h3>Notitieboek</h3>
+                    <p>Elk project begint op papier. Altijd.</p></div>
+                <div class="tile"><h3>Koffie-teller</h3>
+                    <p>Gemiddeld [x] per deadlineweek. Niet gezond, wel eerlijk.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALE SECTIE 2 -->
+    <section id="weetjes" class="section reveal">
+        <div class="wrap grid grid--2">
+            <div>
+                <h2 class="section__title">Weetjes over mij</h2>
+                <ul class="facts facts--wide">
+                    <li><span>Guilty pleasure</span>Weekenden opstap te gaan met vrienden.</li>
+                    <li><span>Buiten het scherm</span>In mij vrije tijd Boulder ik af en toe in de Monk gym in Hasselt.
+                        Verder nog hou ik van Wandelen en in Natuur te zijn
+                    </li>
+                    <li><span>Droomproject</span>Indie game zelf maken.</li>
+                    <li><span>Motto</span>Fall 8 times get up 9.</li>
+                </ul>
+            </div>
+            <div>
+                <h2 class="section__title">Tijdlijn</h2>
+                <ol class="timeline">
+                    <li><b>[jaar]</b> Eerste website in kladblok gemaakt.</li>
+                    <li><b>[jaar]</b> Start opleiding [opleiding].</li>
+                    <li><b>[jaar]</b> Eerste freelance-opdracht voor [klant].</li>
+                    <li><b>[jaar]</b> Stage bij [bedrijf].</li>
+                    <li><b>Nu</b> Op zoek naar [stage/job].</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section section--alt reveal">
+        <div class="wrap contact">
+            <h2 class="section__title">Laten we samenwerken</h2>
+            <p>Een project, een stageplek of gewoon een vraag? Ik antwoord snel.</p>
+            <div class="contact__links">
+                <a class="btn btn--primary" href="mailto:[jouw@mail.com]">[jouw@mail.com]</a>
+                <a class="btn btn--ghost" href="[linkedin-url]">LinkedIn</a>
+                <a class="btn btn--ghost" href="[github-url]">GitHub</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="wrap">
+        <p>© <span id="year">2026</span> Ayoub Boumaaza — gebouwd met HTML, CSS en plain JavaScript.</p>
+    </div>
+</footer>
+
+
+</body>
+</html>
