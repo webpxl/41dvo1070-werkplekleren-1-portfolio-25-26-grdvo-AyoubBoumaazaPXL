@@ -90,11 +90,59 @@
     if (year) year.textContent = String(new Date().getFullYear());
   }
 
+  /* Vergrote kaartweergave ---------------------------------------------- */
+  function initProjectZoom() {
+    var zoomableCards = document.querySelectorAll(".project--zoomable");
+    var modal = document.getElementById("projectModal");
+    var content = document.getElementById("projectModalContent");
+    if (!zoomableCards.length || !modal || !content) return;
+
+    function closeModal() {
+      modal.hidden = true;
+      content.innerHTML = "";
+      document.body.classList.remove("is-modal-open");
+    }
+
+    function openModal(card) {
+      var clonedCard = card.cloneNode(true);
+      clonedCard.classList.remove("project--zoomable");
+      clonedCard.removeAttribute("role");
+      clonedCard.removeAttribute("tabindex");
+      clonedCard.removeAttribute("aria-label");
+      content.innerHTML = "";
+      content.appendChild(clonedCard);
+      modal.hidden = false;
+      document.body.classList.add("is-modal-open");
+    }
+
+    zoomableCards.forEach(function (card) {
+      card.addEventListener("click", function () {
+        openModal(card);
+      });
+
+      card.addEventListener("keydown", function (event) {
+        var key = event.key;
+        if (key !== "Enter" && key !== " ") return;
+        event.preventDefault();
+        openModal(card);
+      });
+    });
+
+    modal.addEventListener("click", function (event) {
+      if (event.target.closest("[data-close-modal]")) closeModal();
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && !modal.hidden) closeModal();
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initNav();
     initFilters();
     initReveal();
     initCounters();
     initYear();
+    initProjectZoom();
   });
 })();
